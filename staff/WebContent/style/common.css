@@ -1,0 +1,115 @@
+
+body{
+	-moz-user-select: none; /*火狐*/
+   	-webkit-user-select: none;  /*webkit浏览器*/
+   	-ms-user-select: none;   /*IE10*/
+   	-khtml-user-select: none; /*早期浏览器*/
+   	user-select: none;
+}
+
+.body{
+	width: 1100px;
+	height: 630px;
+	margin: 0 auto;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.top_div {
+	height: 130px;
+	background: #88f;
+	text-align: center;
+	color: #fff;
+	line-height: 150px;
+	font-style: inherit;
+	font-size: 4em;
+}
+
+#login_msg{
+	height: 20px;
+	background: #88f;
+	color: #fff;
+	text-align: right;
+	padding-right: 50px;
+}
+
+#login_msg a:link, #login_msg a:visited{
+	color: fff;
+}
+
+.left_div {
+	width: 20%;
+	height: 480px;
+	float: left;
+}
+
+a{
+	text-decoration:none;
+}
+table a:link{
+	color: #00f;
+}
+
+a:visited{
+	color: #00f;
+}
+
+.zhu{
+	line-height:30px;
+	text-align: center;
+	border-top: 2px solid #eef;
+	border-bottom: 2px solid #aaf;
+	background: #ccf;
+}
+#select{
+	background: #55c;
+	color: #fff;
+}
+.fu{
+	line-height:30px;
+	text-align: center;
+	background: #eef;
+}
+
+.zhu:active,.fu:active{ 
+	background: #33a;
+	color: #fff;
+	
+}
+.zhu:active{
+	border-bottom: 2px solid #eef;
+	border-top: 2px solid #aaf;
+}
+
+.right_div {
+	height: 480px;
+	width:80%;
+	float: right;
+}
+
+.right_table {
+	width: 100%;
+	border-width: 0;
+	text-align: center;
+}
+
+thead {
+	background: -webkit-gradient(linear, left top, left bottom, from(#66f), to(#00a));
+	color: #fff;
+}
+
+tr, .pages {
+	line-height: 40px;
+}
+
+.tbody {
+	background: #eee;
+}
+
+.tbody tr:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+}
+.pages{
+	text-align: center;
+}

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+    
+<struts>
+	
+	<!-- 登录模块 -->
+	<package name="login" namespace="/login" extends="struts-default">
+		
+		<!-- 返回登陆页面 -->
+		<action name="toLogin">
+			<result>
+				/index.jsp
+			</result>
+		</action>
+		
+		<!-- 登录 -->
+		<action name="login" class="staffManage.action.LoginAction">
+			<result name="common" type="redirectAction">
+				../personal/toPersonal
+			</result>
+			<result name="admin" type="redirectAction">
+				../employ/findEmploy
+			</result>
+			<result name="fail">
+				/index.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<!-- 注销 -->
+		<action name="logout" class="staffManage.action.LogoutAction">
+			<result name="success" type="redirectAction">
+				toLogin
+			</result>
+		</action>
+		
+	</package>
+	
+	<!-- 员工模块 -->
+	<package name="employ" namespace="/employ" extends="struts-default">
+		
+		<!-- 员工基本信息列表 -->
+		<action name="findEmploy" class="staffManage.action.FindEmployAction">
+			<result name="success">
+				/WEB-INF/main/employlist.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="findName" class="staffManage.action.FindNameAction">
+			<result name="success">
+				/WEB-INF/main/empName.jsp
+			</result>
+		</action>
+		
+		<!-- 跳转到添加员工页面 -->
+		<action name="toAddEmploy" class="staffManage.action.ToAddEmployAction">
+			<result name="success">
+				/WEB-INF/main/addEmploy.jsp
+			</result>
+		</action>
+		
+		<!-- 添加员工 -->
+		<action name="addEmploy" class="staffManage.action.AddEmployAction">
+			<result name="success">
+				/WEB-INF/main/result.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<!-- 跳转到编辑员工信息页面 -->
+		<action name="toEditEmploy" class="staffManage.action.ToEditEmployAction">
+			<result name="success">
+				/WEB-INF/main/editEmploy.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<!-- 编辑员工信息 -->
+		<action name="editEmploy" class="staffManage.action.EditEmployAction">
+			<result name="success" type="redirectAction">
+				../employ/findEmploy
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="deleteEmploy" class="staffManage.action.DeleteEmployAction">
+			<result name="success" type="redirectAction">
+				../employ/findEmploy
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		
+		
+	</package>
+	
+	<!-- 工资管理模块 -->
+	<package name="salary" namespace="/salary" extends="struts-default">
+	
+		<!-- 工资信息列表 -->
+		<action name="findSalary" class="staffManage.action.FindSalaryAction">
+			<result name="success">
+				/WEB-INF/main/salaryList.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<!-- 跳转到编辑工资页面 -->
+		<action name="toEidtSalary" class="staffManage.action.ToEidtSalaryAction">
+			<result name="success">
+				/WEB-INF/main/editSalary.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<!-- 编辑工资信息 -->
+		<action name="editSalary" class="staffManage.action.EidtSalaryAction">
+			<result name="success" type="redirectAction">
+				../salary/findSalary
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="personal" namespace="/personal" extends="struts-default">
+	
+		<!-- 跳转到个人主页 -->
+		<action name="toPersonal" class="staffManage.action.ToPersonalAction">
+			<result name="success">
+				/WEB-INF/main/personal.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="toEditPersonal" class="staffManage.action.ToEditPersonalAction">
+			<result name="success">
+				/WEB-INF/main/editPersonal.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="editPersonal" class="staffManage.action.EditPersonalAction">
+			<result name="success" type="redirectAction">
+				toPersonal
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="toHoliday" class="staffManage.action.ToHolidayAction">
+			<result>
+				/WEB-INF/main/holiday.jsp
+			</result>
+		</action>
+		
+		<action name="toEditPassword" class="staffManage.action.ToEditPasswordAction">
+			<result>
+				/WEB-INF/main/editPassword.jsp
+			</result>
+		</action>
+		
+		<action name="editPassword" class="staffManage.action.EditPasswordAction">
+			<result name="success" type="redirectAction">
+				toPersonal
+			</result>
+			<result name="err">
+				/WEB-INF/main/editPassword.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="checkSign" class="staffManage.action.CheckSignAction">
+			<result name="success">
+				/WEB-INF/main/sign.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="sign" class="staffManage.action.SignAction">
+			<result name="success" type="redirectAction">
+				toPersonal
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+		<action name="applyHoliday" class="staffManage.action.ApplyHolidayAction">
+			<result name="success" type="redirectAction">
+				toPersonal
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="attendance" namespace="/attendance" extends="struts-default">
+		<action name="toAttendance" class="staffManage.action.FindAttendanceAction">
+			<result name="success">
+				/WEB-INF/main/attendance.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+	</package>
+	
+	<package name="holiday" namespace="/holiday" extends="struts-default">
+		<action name="toHolidayManage" class="staffManage.action.FindUntreatedHolidayAction">
+			<result name="success">
+				/WEB-INF/main/holidayManage.jsp
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		<action name="passHoliday" class="staffManage.action.PassHolidayAction">
+			<result name="success" type="redirectAction">
+				toHolidayManage
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+		<action name="denyHoliday" class="staffManage.action.DenyHolidayAction">
+			<result name="success" type="redirectAction">
+				toHolidayManage
+			</result>
+			<result name="error">
+				/WEB-INF/main/error.jsp
+			</result>
+		</action>
+	</package>
+	
+</struts>
